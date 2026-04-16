@@ -26,17 +26,17 @@ window.addEventListener('DOMContentLoaded', async () => {
 async function api(action, data = null) {
   if (!CONFIG.API_URL) return null;
   try {
+    let url;
     if (data) {
-      const res = await fetch(CONFIG.API_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action, ...data })
-      });
-      return await res.json();
+      // CORS 우회: POST 데이터를 GET 파라미터로 전송
+      const payload = encodeURIComponent(JSON.stringify({ action, ...data }));
+      url = `${CONFIG.API_URL}?method=POST&payload=${payload}`;
     } else {
-      const res = await fetch(`${CONFIG.API_URL}?action=${action}`);
-      return await res.json();
+      url = `${CONFIG.API_URL}?action=${action}`;
     }
+    const res = await fetch(url, { redirect: 'follow' });
+    const text = await res.text();
+    return JSON.parse(text);
   } catch(e) { console.warn('API오류, 로컬사용:', e.message); return null; }
 }
 
