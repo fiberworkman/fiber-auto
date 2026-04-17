@@ -1,8 +1,19 @@
 const CONFIG = {
-  SHEET_ID: '13XKPItnk9MaRAS_14-DqMCEHMRh24n6ISjuLtHmCzM8',
-  API_URL: '',  // ← 배포 후 여기에 URL 입력
+  SHEET_ID: '1AzSxrkw3qNSFbAkjBAF_EDygdq0-8pon-Oa_g9P19AU',
+  API_URL: '',  // ← 로컬 모드 (CORS 에러 해결)
   APP_NAME: '모자분리 공사요청 시스템',
-  COMPANY: 'SK Broadband',
+  COMPANY: 'SK Broadband 수남구축팀',
+
+  // Firebase 설정
+  FIREBASE_CONFIG: {
+    apiKey: "AIzaSyDt2Q5K3X_mZ6nLpQrS8vW9aB0cD1eF2gH3",
+    authDomain: "mojabunri-01.firebaseapp.com",
+    projectId: "mojabunri-01",
+    storageBucket: "mojabunri-01.appspot.com",
+    messagingSenderId: "123456789012",
+    appId: "1:123456789012:web:abc1def2ghi3jkl4m5n6o7p8"
+  },
+
   OPTIONS: {
     운용팀: ['강남', '동작', '수원'],
     정보센터: ['강남', '동작', '안양', '수원', '성남', '분당'],
@@ -14,7 +25,9 @@ const CONFIG = {
     진행상태: ['접수', 'SKB검토', '협력사접수', '한전접수', '처리완료'],
     역할: ['관리자', 'SKB담당자', '협력사', '요청자'],
   },
+
   LIST_COLS: ['진행상태','KeyNO','운용팀','건물명','건물주소','요청자이름','접수일시','우선순위'],
+
   EXPORT_COLS: [
     'KeyNO','접수일시','진행상태','우선순위','본부','운용팀','정보센터',
     '건물명','건물주소','건물코드','장비설치일','동수','세대수','건물유형',
@@ -24,23 +37,24 @@ const CONFIG = {
     '차단기위치','계량기위치','요청구분','특이사항',
     '처리메모','최종수정일','설치장비List','기타첨부서류','사진링크'
   ],
+
   MENUS: {
-    관리자:   [
+    관리자: [
       { id:'page-dashboard',   icon:'📊', label:'모자분리 진행현황' },
       { id:'page-list',        icon:'📋', label:'모자분리 신청목록' },
       { id:'page-new-request', icon:'✏️', label:'모자분리 신규신청' },
       { id:'page-users',       icon:'👥', label:'사용자 관리' },
     ],
-    SKB담당자:[
+    SKB담당자: [
       { id:'page-dashboard',   icon:'📊', label:'모자분리 진행현황' },
       { id:'page-list',        icon:'📋', label:'모자분리 신청목록' },
       { id:'page-new-request', icon:'✏️', label:'모자분리 신규신청' },
     ],
-    협력사:   [
+    협력사: [
       { id:'page-dashboard', icon:'📊', label:'모자분리 진행현황' },
       { id:'page-list',      icon:'📋', label:'모자분리 신청목록' },
     ],
-    요청자:   [
+    요청자: [
       { id:'page-list',        icon:'📋', label:'내 신청목록' },
       { id:'page-new-request', icon:'✏️', label:'모자분리 신규신청' },
     ],
