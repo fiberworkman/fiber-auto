@@ -1,18 +1,5 @@
 const CONFIG = {
-  SHEET_ID: '1AzSxrkw3qNSFbAkjBAF_EDygdq0-8pon-Oa_g9P19AU',
-  API_URL: '',  // ← 로컬 모드 (CORS 에러 해결)
-  APP_NAME: '모자분리 공사요청 시스템',
-  COMPANY: 'SK Broadband 수남구축팀',
 
-  // Firebase 설정
-  FIREBASE_CONFIG: {
-    apiKey: "AIzaSyDt2Q5K3X_mZ6nLpQrS8vW9aB0cD1eF2gH3",
-    authDomain: "mojabunri-01.firebaseapp.com",
-    projectId: "mojabunri-01",
-    storageBucket: "mojabunri-01.appspot.com",
-    messagingSenderId: "123456789012",
-    appId: "1:123456789012:web:abc1def2ghi3jkl4m5n6o7p8"
-  },
 
   OPTIONS: {
     운용팀: ['강남', '동작', '수원'],
